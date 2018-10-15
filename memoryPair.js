@@ -76,6 +76,8 @@ function configurations(){
     };
     });
     cell.addEventListener("click", function(event){
+        if(ready == false)
+        return;
          
         startTimer();
         if(event.currentTarget.completed == false && event.currentTarget.clicked == false){
