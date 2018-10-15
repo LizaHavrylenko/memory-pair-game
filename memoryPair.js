@@ -2,6 +2,7 @@ let clickedArray = [];
 let interval;
 let started = false;
 let time = 0;
+let ready = true;
 let numCompleted = 0;
 const answersArray = [];
 
@@ -85,7 +86,7 @@ function configurations(){
     };
    
     if(clickedArray.length == 2){
-       
+        ready = false;
         if(clickedArray[0].children[1].children[0].name == clickedArray[1].children[1].children[0].name){
             
             complete(clickedArray[0]);
@@ -136,7 +137,6 @@ function hide(cell){
     cell.style.transform = "rotateY(0deg)";
     cell.style.transition = "transform 2s";  
     cell.clicked = false;
-    console.log(cell.clicked);
 };
 function complete(cell){
     numCompleted++;
