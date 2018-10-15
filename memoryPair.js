@@ -81,8 +81,7 @@ function configurations(){
          
         startTimer();
         if(event.currentTarget.completed == false && event.currentTarget.clicked == false){
-           
-        clickedArray.push(event.currentTarget);self
+        clickedArray.push(event.currentTarget);
         cell.style.background = "white";
         reveal(event.currentTarget);
     };
@@ -93,8 +92,6 @@ function configurations(){
             
             complete(clickedArray[0]);
             complete(clickedArray[1]);
-        
-            clickedArray = [];
             if(numCompleted == 12){
                 setTimeout(() =>{
                 alert(`You won in ${time} seconds!`);
@@ -103,18 +100,25 @@ function configurations(){
             } 
         }
         else{
-            ready = false;
+             
             setTimeout(() =>{
                 clickedArray[0].classList.remove("flip");
                 clickedArray[1].classList.remove("flip");  
                 hide(clickedArray[0]);
                 hide(clickedArray[1]);
-                clickedArray = [];
+
+                clickedArray = []; 
+                
+                setTimeout(() =>{
                 ready = true;
+                }, 2000);
+                
             },1000);
 
         }
+        
     };
+        
     });
 }
 document.getElementById('restart').addEventListener('click', function(){
